@@ -2,44 +2,1936 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>Toolcart.org – 100% Free Online Tools – No Sign-Up</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Toolcart.org - 100% Free Online Tools</title>
-  <meta name="description" content="Free online calculators and utilities for science, finance, health, sports, and more. No login required." />
+  <meta name="description" content="Toolcart.org offers 100% free online calculators and utilities for science, health, finance, sports, digital tools, text tools, games, and more. No login, no paywalls." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Toolcart.org – 100% Free Online Tools – No Sign-Up" />
+  <meta property="og:description" content="Smart calculators and utilities across science, finance, health, sports, digital, and lifestyle — all free and instant in your browser." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://toolcart.org/" />
+  <meta property="og:image" content="https://toolcart.org/og-image.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Toolcart.org – 100% Free Online Tools" />
+  <meta name="twitter:description" content="Use fast, accurate, and free online calculators and utilities. No signup, no friction." />
+  <meta name="twitter:image" content="https://toolcart.org/og-image.png" />
+
+  <!-- Canonical -->
   <link rel="canonical" href="https://toolcart.org/" />
+
+  <!-- Fonts & Styles -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    * { box-sizing: border-box; }
-    body { margin: 0; font-family: 'Inter', sans-serif; background: #f8fafc; }
-    .container { max-width: 1440px; margin: 0 auto; padding: 0 1.5rem; }
-    header { background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
-    .hero { padding: 4rem 0; text-align: center; }
-    .hero h1 { font-size: 2.5rem; color: #09637E; }
+    :root {
+      /* Ocean teal palette */
+      --color-primary: #09637E;
+      --color-primary-light: #088395;
+      --color-secondary: #7AB2B2;
+      --color-accent: #EBF4F6;
+      --color-warning: #D97E6F;
+
+      --bg-body: #f8fafc;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --accent-blue: #3b82f6;
+      --accent-green: #22c55e;
+      --card-bg: #ffffff;
+      --card-soft: #f3f4f6;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.10);
+      --shadow-subtle: 0 6px 18px rgba(15, 23, 42, 0.08);
+      --max-width: 1440px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.6;
+      font-size: 17px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: #ffffff;
+      box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.5rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      font-size: 1.25rem;
+      color: var(--color-primary);
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 0.9rem;
+      box-shadow: 0 10px 25px rgba(8, 131, 149, 0.4);
+    }
+
+    nav.primary-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    nav.primary-nav > ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 1.25rem;
+    }
+
+    nav.primary-nav > ul > li {
+      position: relative;
+      padding: 0.35rem 0;
+    }
+
+    nav.primary-nav > ul > li > a {
+      padding: 0.25rem 0;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s ease, border-color 0.15s ease;
+      white-space: nowrap;
+    }
+
+    nav.primary-nav > ul > li:hover > a {
+      color: var(--color-primary-light);
+      border-color: var(--color-primary-light);
+    }
+
+    /* Dropdown */
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 260px;
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: var(--shadow-soft);
+      padding: 0.75rem 0.75rem;
+      transform-origin: top left;
+      transform: scale(0.98) translateY(4px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.16s ease, transform 0.16s ease;
+    }
+
+    nav.primary-nav > ul > li:hover > .dropdown {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1) translateY(0);
+    }
+
+    .dropdown-section-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin: 0.25rem 0 0.5rem;
+    }
+
+    .dropdown ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .dropdown li {
+      margin-bottom: 0.25rem;
+    }
+
+    .dropdown a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.4rem 0.5rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .dropdown a span.label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .dropdown a small {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .dropdown a:hover {
+      background: var(--color-accent);
+      color: var(--color-primary);
+    }
+
+    /* Sub-level (indented) */
+    .dropdown ul.sublevel {
+      margin-top: 0.25rem;
+      border-top: 1px dashed #e2e8f0;
+      padding-top: 0.25rem;
+    }
+
+    .dropdown ul.sublevel a {
+      padding-left: 0.9rem;
+      font-size: 0.88rem;
+    }
+
+    /* Mobile nav */
+    .nav-toggle {
+      display: none;
+      border: none;
+      background: transparent;
+      padding: 0.35rem;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text-main);
+      border-radius: 999px;
+      margin: 4px 0;
+    }
+
+    .mobile-drawer {
+      position: fixed;
+      inset: 0;
+      background: rgba(15,23,42,0.55);
+      display: none;
+      z-index: 40;
+    }
+
+    .mobile-drawer.active {
+      display: block;
+    }
+
+    .mobile-drawer-panel {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 82%;
+      max-width: 360px;
+      height: 100%;
+      background: #ffffff;
+      padding: 1.25rem 1rem 2rem;
+      overflow-y: auto;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .mobile-drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+    }
+
+    .mobile-menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 0.98rem;
+    }
+
+    .mobile-menu li {
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .mobile-menu button.accordion {
+      width: 100%;
+      border: none;
+      background: transparent;
+      padding: 0.7rem 0;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.98rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 0.6rem 0;
+    }
+
+    .mobile-submenu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease;
+    }
+
+    .mobile-submenu.open {
+      max-height: 600px;
+    }
+
+    .mobile-submenu a {
+      font-size: 0.9rem;
+      padding-left: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Info bar */
+    .info-bar {
+      background: linear-gradient(90deg, #4caf50, #8bc34a, #00e676, #43a047);
+      color: #ffffff;
+      text-align: center;
+      padding: 0.65rem 1rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+
+    /* Hero */
+    main {
+      padding: 2.5rem 0 3rem;
+    }
+
+    .tools-homepage {
+      position: relative;
+    }
+
+    .hero {
+      position: relative;
+      border-radius: 32px;
+      padding: 2.5rem 1.75rem 2.25rem;
+      margin-bottom: 2.5rem;
+      background: radial-gradient(circle at top left, rgba(8,131,149,0.20), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(122,178,178,0.26), transparent 60%),
+                  linear-gradient(135deg, #ffffff, #f1f5f9);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .hero-floating {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.5;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(8,131,149,0.17), transparent 55%),
+        radial-gradient(circle at 80% 10%, rgba(217,126,111,0.24), transparent 55%);
+      animation: float-bg 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes float-bg {
+      from { transform: translate3d(0,0,0); }
+      to   { transform: translate3d(0,-10px,0); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 1.75rem;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      margin: 0 0 0.5rem;
+      font-size: clamp(2rem, 2.6vw, 2.6rem);
+      letter-spacing: -0.04em;
+    }
+
+    .hero-text h1 span.brand {
+      color: var(--color-primary);
+    }
+
+    .hero-subtitle {
+      margin: 0 0 1.25rem;
+      color: var(--text-muted);
+      max-width: 34rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(9,99,126,0.08);
+      color: var(--color-primary);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+    }
+
+    .search-shell {
+      position: relative;
+      max-width: 540px;
+    }
+
+    .search-shell form {
+      display: flex;
+      gap: 0.5rem;
+      background: #ffffff;
+      border-radius: 999px;
+      padding: 0.4rem 0.4rem 0.4rem 0.85rem;
+      box-shadow: 0 14px 35px rgba(15,23,42,0.12);
+      border: 1px solid rgba(148,163,184,0.45);
+    }
+
+    .search-shell input[type="search"] {
+      border: none;
+      background: transparent;
+      flex: 1;
+      font-size: 0.98rem;
+      outline: none;
+      color: var(--text-main);
+    }
+
+    .search-shell input::placeholder {
+      color: #9ca3af;
+    }
+
+    .search-shell button {
+      border: none;
+      border-radius: 999px;
+      padding: 0.6rem 1.4rem;
+      background: #020617;
+      color: #ffffff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 10px 30px rgba(15,23,42,0.45);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+    }
+
+    .search-shell button:hover {
+      transform: translateY(-1px);
+      background: #0f172a;
+      box-shadow: 0 16px 38px rgba(15,23,42,0.55);
+    }
+
+    .hero-meta {
+      margin-top: 0.55rem;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+
+    /* Hero side visual */
+    .hero-visual {
+      position: relative;
+      justify-self: center;
+      width: 100%;
+      max-width: 360px;
+    }
+
+    .hero-card {
+      position: relative;
+      background: rgba(255,255,255,0.92);
+      border-radius: var(--radius-lg);
+      padding: 1.2rem 1.2rem 1rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148,163,184,0.5);
+      backdrop-filter: blur(16px);
+    }
+
+    .hero-card-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-card-title span.label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .hero-card-title span.pill {
+      font-size: 0.76rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(8,131,149,0.08);
+      color: var(--color-primary-light);
+      font-weight: 600;
+    }
+
+    .hero-steps {
+      display: grid;
+      gap: 0.55rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-step {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.82rem;
+    }
+
+    .hero-step-main {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hero-step-badge {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: var(--color-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+
+    .hero-progress {
+      margin-top: 0.5rem;
+    }
+
+    .hero-progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      margin-bottom: 0.2rem;
+      color: var(--text-muted);
+    }
+
+    .hero-progress-bar {
+      position: relative;
+      height: 8px;
+      border-radius: 999px;
+      background: #e2e8f0;
+      overflow: hidden;
+    }
+
+    .hero-progress-fill {
+      position: absolute;
+      inset: 0;
+      width: 68%;
+      background: linear-gradient(90deg, var(--color-primary-light), var(--color-secondary));
+      border-radius: inherit;
+      box-shadow: 0 0 0 1px rgba(15,23,42,0.06);
+      animation: progress-pulse 2.2s ease-in-out infinite alternate;
+    }
+
+    @keyframes progress-pulse {
+      from { width: 64%; }
+      to { width: 74%; }
+    }
+
+    .hero-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+    }
+
+    .hero-chip {
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Category groups */
+    .category-section {
+      margin-bottom: 2.4rem;
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      gap: 1rem;
+    }
+
+    .category-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      border-left: 4px solid var(--accent-blue);
+      padding-left: 0.75rem;
+    }
+
+    .category-title h2 {
+      margin: 0;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+    }
+
+    .category-title span.eyebrow {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+    }
+
+    .category-link {
+      font-size: 0.85rem;
+      color: var(--accent-blue);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    @media (max-width: 1024px) {
+      .tools-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .tools-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .tool-card {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: #e5e7eb;
+      box-shadow: var(--shadow-subtle);
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      transform: translateY(0);
+      transition: transform 0.14s ease, box-shadow 0.14s ease;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 32px rgba(15,23,42,0.16);
+    }
+
+    .tool-card-header {
+      min-height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: #0f172a;
+    }
+
+    .tool-card-body {
+      background: #ffffff;
+      padding: 0.85rem 0.95rem 0.9rem;
+      text-align: center;
+    }
+
+    .tool-card-body h3 {
+      margin: 0 0 0.15rem;
+      font-size: 0.98rem;
+      letter-spacing: -0.02em;
+    }
+
+    .tool-card-body p {
+      margin: 0;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    /* Gradient classes (examples) */
+    .card-chemistry       { background: linear-gradient(145deg,#d9f99d,#bbf7d0); }
+    .card-analytical      { background: linear-gradient(145deg,#bae6fd,#dbeafe); }
+    .card-biochemistry    { background: linear-gradient(145deg,#c7d2fe,#e0e7ff); }
+    .card-env-chem        { background: linear-gradient(145deg,#a5f3fc,#b2f5ea); }
+
+    .card-physics         { background: linear-gradient(145deg,#d8b4fe,#c084fc); }
+    .card-tennis          { background: linear-gradient(145deg,#fef08a,#fde047); }
+
+    .card-finance         { background: linear-gradient(145deg,#d4d4d8,#a1a1aa); }
+    .card-conversion      { background: linear-gradient(145deg,#c084fc,#a855f7); }
+    .card-digital         { background: linear-gradient(145deg,#bfdbfe,#93c5fd); }
+
+    .card-astrology       { background: linear-gradient(145deg,#fecaca,#f87171); }
+    .card-browser-games   { background: linear-gradient(145deg,#bbf7d0,#4ade80); }
+    .card-creative        { background: linear-gradient(145deg,#cbd5e1,#94a3b8); }
+    .card-viral-hashtags  { background: linear-gradient(145deg,#d9f99d,#a3e635); }
+
+    /* Footer */
+    footer.site-footer {
+      border-top: 1px solid #e2e8f0;
+      background: #ffffff;
+      margin-top: 2.5rem;
+    }
+
+    .footer-top {
+      padding: 2.25rem 0 1.5rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .footer-top-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.75rem;
+    }
+
+    .footer-col h3 {
+      margin: 0 0 0.75rem;
+      font-size: 0.98rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .footer-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 0.9rem;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.35rem;
+    }
+
+    .footer-links a {
+      color: var(--text-main);
+    }
+
+    .footer-links a:hover {
+      color: var(--color-primary-light);
+    }
+
+    details.faq-item {
+      background: var(--card-soft);
+      border-radius: 12px;
+      padding: 0.55rem 0.75rem;
+      margin-bottom: 0.45rem;
+    }
+
+    details.faq-item summary {
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      list-style: none;
+    }
+
+    details.faq-item[open] {
+      background: #e5f3f6;
+    }
+
+    .footer-middle {
+      padding: 1.75rem 0 1.4rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .footer-middle-grid {
+      display: grid;
+      grid-template-columns: 2fr 2fr 1.2fr;
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .footer-feature-box {
+      background: var(--card-soft);
+      border-radius: 18px;
+      padding: 1rem 1.1rem;
+      border: 1px solid rgba(148,163,184,0.6);
+      box-shadow: var(--shadow-subtle);
+      font-size: 0.9rem;
+    }
+
+    .footer-feature-box h4 {
+      margin: 0 0 0.6rem;
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .footer-feature-box h4 span.tc {
+      color: var(--color-primary);
+    }
+
+    .footer-feature-box h4 span.free {
+      color: var(--color-secondary);
+    }
+
+    .footer-feature-box h4 span.tools {
+      color: var(--color-primary-light);
+    }
+
+    .testimonial-box {
+      background: var(--card-soft);
+      border-radius: 18px;
+      padding: 1rem 1.1rem 0.9rem;
+      border: 1px solid rgba(148,163,184,0.6);
+      box-shadow: var(--shadow-subtle);
+      font-size: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      font-size: 0.9rem;
+    }
+
+    .testimonial-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .testimonial-controls {
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .testimonial-controls button {
+      border: none;
+      background: #020617;
+      color: #ffffff;
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-social {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+
+    .social-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .social-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #020617;
+      color: #ffffff;
+      font-size: 0.9rem;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(15,23,42,0.4);
+    }
+
+    .footer-bottom {
+      padding: 0.9rem 0;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .footer-bottom-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-bottom-nav {
+      display: flex;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-bottom-nav a {
+      color: var(--text-muted);
+    }
+
+    .footer-bottom-nav a:hover {
+      color: var(--color-primary-light);
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      nav.primary-nav {
+        display: none;
+      }
+      .nav-toggle {
+        display: inline-flex;
+      }
+      .hero-content {
+        grid-template-columns: 1fr;
+      }
+      .hero {
+        padding: 1.9rem 1.4rem 1.7rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .footer-top-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-middle-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .search-shell form {
+        flex-direction: column;
+        padding: 0.35rem 0.4rem 0.4rem 0.6rem;
+      }
+      .search-shell button {
+        width: 100%;
+        justify-content: center;
+      }
+    }
   </style>
+
+  <!-- JSON-LD structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Toolcart.org",
+    "url": "https://toolcart.org/",
+    "logo": "https://toolcart.org/logo.png",
+    "sameAs": [
+      "https://www.youtube.com/@toolcart",
+      "https://www.facebook.com/toolcart",
+      "https://medium.com/@toolcart"
+    ],
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "email": "hello@toolcart.org",
+      "contactType": "customer support"
+    }]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://toolcart.org/",
+    "name": "Toolcart.org – Free Online Tools",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://toolcart.org/?s={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>Toolcart.org</h1>
+  <header class="site-header">
+    <div class="header-inner container">
+      <a href="/" class="logo" aria-label="Toolcart.org home">
+        <div class="logo-mark">Tc</div>
+        <span>Toolcart.org</span>
+      </a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="/">Home</a></li>
+
+          <li>
+            <a href="/chemistry/">Science</a>
+            <div class="dropdown">
+              <div class="dropdown-section-title">Science & Education</div>
+              <ul>
+                <li><a href="/chemistry/"><span class="label">Chemistry Calculators</span><small>/chemistry/</small></a></li>
+                <ul class="sublevel">
+                  <li><a href="/chemistry/food-chemistry/"><span class="label">Food Chemistry</span></a></li>
+                  <li><a href="/chemistry/industrial-chemistry/"><span class="label">Industrial Chemistry</span></a></li>
+                  <li><a href="/chemistry/materials-chemistry/"><span class="label">Materials Chemistry</span></a></li>
+                  <li><a href="/chemistry/environmental-chemistry/"><span class="label">Environmental Chemistry</span></a></li>
+                  <li><a href="/chemistry/biochemistry/"><span class="label">Biochemistry</span></a></li>
+                  <li><a href="/chemistry/analytical-chemistry/"><span class="label">Analytical Chemistry</span></a></li>
+                </ul>
+                <li><a href="/physics/"><span class="label">Physics Calculators</span><small>/physics/</small></a></li>
+                <li><a href="/biology-calculators/"><span class="label">Biology Calculators</span><small>/biology-calculators/</small></a></li>
+                <li><a href="/ecology/"><span class="label">Ecology Calculators</span><small>/ecology/</small></a></li>
+                <ul class="sublevel">
+                  <li><a href="/ecology/renewable-energy/"><span class="label">Renewable Energy</span></a></li>
+                  <li><a href="/ecology/footprint/"><span class="label">Footprint Calculators</span></a></li>
+                </ul>
+                <li><a href="/education-calculators/"><span class="label">Education Calculators</span></a></li>
+                <li><a href="/study-tools/"><span class="label">Study Tools</span></a></li>
+                <li><a href="/reading-calculators/"><span class="label">Reading Calculators</span></a></li>
+                <li><a href="/mcqs/"><span class="label">MCQs Practice Tests</span></a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <a href="/health-calculators/">Health</a>
+            <div class="dropdown">
+              <div class="dropdown-section-title">Health & Daily Life</div>
+              <ul>
+                <li><a href="/health-calculators/"><span class="label">Health Calculators</span></a></li>
+                <li><a href="/personal-care/"><span class="label">Personal Care</span></a></li>
+                <li><a href="/home-economics/"><span class="label">Home Economics</span></a></li>
+                <li><a href="/water/"><span class="label">Water Calculators</span></a></li>
+                <li><a href="/parenting/"><span class="label">Parenting Calculators</span></a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <a href="/finance-calculators/">Finance</a>
+            <div class="dropdown">
+              <div class="dropdown-section-title">Finance & Productivity</div>
+              <ul>
+                <li><a href="/finance-calculators/"><span class="label">Finance Calculators</span></a></li>
+                <li><a href="/productivity-calculators/"><span class="label">Productivity Calculators</span></a></li>
+                <li><a href="/date-time-calculators/"><span class="label">Date &amp; Time Calculators</span></a></li>
+                <li><a href="/conversion-calculators/"><span class="label">Conversion Calculators</span></a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <a href="/digital/">Tools</a>
+            <div class="dropdown">
+              <div class="dropdown-section-title">Digital & Text Tools</div>
+              <ul>
+                <li><a href="/digital/"><span class="label">Digital Tools</span></a></li>
+                <li><a href="/html-tools/"><span class="label">HTML Tools</span></a></li>
+                <li><a href="/page-generators/"><span class="label">Page Generator Tools</span></a></li>
+                <li><a href="/image-converters/"><span class="label">Image Converters</span></a></li>
+                <li><a href="/keyboard-tools/"><span class="label">Keyboard Tools</span></a></li>
+                <li><a href="/youtube-tools/"><span class="label">YouTube Tools</span></a></li>
+                <li><a href="/text/"><span class="label">Text Tools</span></a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <a href="/sports/">Sports</a>
+            <div class="dropdown">
+              <div class="dropdown-section-title">Sports Calculators</div>
+              <ul>
+                <li><a href="/sports/baseball/"><span class="label">Baseball</span></a></li>
+                <li><a href="/sports/basketball/"><span class="label">Basketball</span></a></li>
+                <li><a href="/sports/cricket/"><span class="label">Cricket</span></a></li>
+                <li><a href="/sports/football/"><span class="label">Football</span></a></li>
+                <li><a href="/sports/golf/"><span class="label">Golf</span></a></li>
+                <li><a href="/sports/hockey/"><span class="label">Hockey</span></a></li>
+                <li><a href="/sports/rugby/"><span class="label">Rugby</span></a></li>
+                <li><a href="/sports/tennis/"><span class="label">Tennis</span></a></li>
+                <li><a href="/sports/volleyball/"><span class="label">Volleyball</span></a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <a href="/home-lifestyle/">Lifestyle &amp; More</a>
+            <div class="dropdown">
+              <div class="dropdown-section-title">Lifestyle & Fun</div>
+              <ul>
+                <li><a href="/agriculture/"><span class="label">Agriculture</span></a></li>
+                <li><a href="/clothing/"><span class="label">Clothing Calculators</span></a></li>
+                <li><a href="/sewing/"><span class="label">Sewing Calculators</span></a></li>
+                <li><a href="/cooking/"><span class="label">Cooking Calculators</span></a></li>
+                <li><a href="/coffee-tea/"><span class="label">Coffee &amp; Tea</span></a></li>
+                <li><a href="/construction/"><span class="label">Construction</span></a></li>
+                <li><a href="/transportation/"><span class="label">Transportation</span></a></li>
+                <li><a href="/astrology/"><span class="label">Astrology Tools</span></a></li>
+                <li><a href="/games/"><span class="label">Browser Games</span></a></li>
+                <li><a href="/hashtags/"><span class="label">Viral Hashtags</span></a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+
+      <button class="nav-toggle" aria-label="Open navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="info-bar">
+      SPEED UP YOUR DAY — 100% FREE TOOLS ARE HERE TO HELP!
     </div>
   </header>
+
+  <!-- Mobile drawer -->
+  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="mobile-drawer-panel">
+      <div class="mobile-drawer-header">
+        <span style="font-weight:600;">Toolcart.org</span>
+        <button class="nav-toggle" id="closeDrawer" aria-label="Close navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <ul class="mobile-menu">
+        <li><a href="/">Home</a></li>
+
+        <li>
+          <button class="accordion">Science<span>+</span></button>
+          <div class="mobile-submenu">
+            <a href="/chemistry/">Chemistry Calculators</a>
+            <a href="/chemistry/food-chemistry/">Food Chemistry</a>
+            <a href="/chemistry/industrial-chemistry/">Industrial Chemistry</a>
+            <a href="/chemistry/materials-chemistry/">Materials Chemistry</a>
+            <a href="/chemistry/environmental-chemistry/">Environmental Chemistry</a>
+            <a href="/chemistry/biochemistry/">Biochemistry</a>
+            <a href="/chemistry/analytical-chemistry/">Analytical Chemistry</a>
+            <a href="/physics/">Physics Calculators</a>
+            <a href="/biology-calculators/">Biology Calculators</a>
+            <a href="/ecology/">Ecology Calculators</a>
+            <a href="/ecology/renewable-energy/">Renewable Energy</a>
+            <a href="/ecology/footprint/">Footprint Calculators</a>
+            <a href="/education-calculators/">Education Calculators</a>
+            <a href="/study-tools/">Study Tools</a>
+            <a href="/reading-calculators/">Reading Calculators</a>
+            <a href="/mcqs/">MCQs Practice Test</a>
+          </div>
+        </li>
+
+        <li>
+          <button class="accordion">Health<span>+</span></button>
+          <div class="mobile-submenu">
+            <a href="/health-calculators/">Health Calculators</a>
+            <a href="/personal-care/">Personal Care</a>
+            <a href="/home-economics/">Home Economics</a>
+            <a href="/water/">Water Calculators</a>
+            <a href="/parenting/">Parenting Calculators</a>
+          </div>
+        </li>
+
+        <li>
+          <button class="accordion">Finance<span>+</span></button>
+          <div class="mobile-submenu">
+            <a href="/finance-calculators/">Finance Calculators</a>
+            <a href="/productivity-calculators/">Productivity Calculators</a>
+            <a href="/date-time-calculators/">Date & Time Calculators</a>
+            <a href="/conversion-calculators/">Conversion Calculators</a>
+          </div>
+        </li>
+
+        <li>
+          <button class="accordion">Tools<span>+</span></button>
+          <div class="mobile-submenu">
+            <a href="/digital/">Digital Tools</a>
+            <a href="/html-tools/">HTML Tools</a>
+            <a href="/page-generators/">Page Generator Tools</a>
+            <a href="/image-converters/">Image Converters</a>
+            <a href="/keyboard-tools/">Keyboard Tools</a>
+            <a href="/youtube-tools/">YouTube Tools</a>
+            <a href="/text/">Text Tools</a>
+          </div>
+        </li>
+
+        <li>
+          <button class="accordion">Sports<span>+</span></button>
+          <div class="mobile-submenu">
+            <a href="/sports/baseball/">Baseball</a>
+            <a href="/sports/basketball/">Basketball</a>
+            <a href="/sports/cricket/">Cricket</a>
+            <a href="/sports/football/">Football</a>
+            <a href="/sports/golf/">Golf</a>
+            <a href="/sports/hockey/">Hockey</a>
+            <a href="/sports/rugby/">Rugby</a>
+            <a href="/sports/tennis/">Tennis</a>
+            <a href="/sports/volleyball/">Volleyball</a>
+          </div>
+        </li>
+
+        <li>
+          <button class="accordion">Lifestyle & More<span>+</span></button>
+          <div class="mobile-submenu">
+            <a href="/agriculture/">Agriculture</a>
+            <a href="/clothing/">Clothing Calculators</a>
+            <a href="/sewing/">Sewing Calculators</a>
+            <a href="/cooking/">Cooking Calculators</a>
+            <a href="/coffee-tea/">Coffee & Tea</a>
+            <a href="/construction/">Construction</a>
+            <a href="/transportation/">Transportation</a>
+            <a href="/astrology/">Astrology Tools</a>
+            <a href="/games/">Browser Games</a>
+            <a href="/hashtags/">Viral Hashtags</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
   <main>
-    <div class="container">
-      <section class="hero">
-        <h1>⚡ Toolcart.org</h1>
-        <p>100% Free Online Tools & Calculators</p>
-        <p>Science | Finance | Health | Sports | Digital | Text Tools</p>
+    <div class="container tools-homepage">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-floating"></div>
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1 id="hero-title">
+              ⚡ <span class="brand">Toolcart.org</span>
+            </h1>
+            <p class="hero-subtitle">
+              Smart calculators & utilities — accurate, instant, and always free in your browser. Build, convert, and calculate without sign‑ups or downloads.
+            </p>
+
+            <div class="hero-badges">
+              <div class="hero-badge">100% Free</div>
+              <div class="hero-badge">Client‑Side Calculations</div>
+              <div class="hero-badge">No Login</div>
+            </div>
+
+            <div class="search-shell" role="search">
+              <form action="/" method="GET">
+                <input
+                  type="search"
+                  name="s"
+                  placeholder="Search tools…"
+                  aria-label="Search tools on Toolcart.org"
+                  required
+                />
+                <button type="submit">
+                  <span>Search</span>
+                  <span>↵</span>
+                </button>
+              </form>
+              <div class="hero-meta">
+                Try “EMI calculator”, “word counter”, “tennis stats”, or “impact test”.
+              </div>
+            </div>
+          </div>
+
+          <aside class="hero-visual" aria-hidden="true">
+            <div class="hero-card">
+              <div class="hero-card-title">
+                <span class="label">Your Day, Simplified</span>
+                <span class="pill">Live Results</span>
+              </div>
+              <div class="hero-steps">
+                <div class="hero-step">
+                  <div class="hero-step-main">
+                    <div class="hero-step-badge">1</div>
+                    <div>
+                      <div style="font-size:0.85rem;font-weight:600;">Pick a tool</div>
+                      <div style="font-size:0.78rem;color:var(--text-muted);">Finance, health, science & more</div>
+                    </div>
+                  </div>
+                  <span style="font-size:0.78rem;color:var(--text-muted);">5 sec</span>
+                </div>
+                <div class="hero-step">
+                  <div class="hero-step-main">
+                    <div class="hero-step-badge">2</div>
+                    <div>
+                      <div style="font-size:0.85rem;font-weight:600;">Enter values</div>
+                      <div style="font-size:0.78rem;color:var(--text-muted);">All in your browser</div>
+                    </div>
+                  </div>
+                  <span style="font-size:0.78rem;color:var(--text-muted);">10 sec</span>
+                </div>
+                <div class="hero-step">
+                  <div class="hero-step-main">
+                    <div class="hero-step-badge">3</div>
+                    <div>
+                      <div style="font-size:0.85rem;font-weight:600;">Copy the result</div>
+                      <div style="font-size:0.78rem;color:var(--text-muted);">Share or export instantly</div>
+                    </div>
+                  </div>
+                  <span style="font-size:0.78rem;color:var(--text-muted);">Instant</span>
+                </div>
+              </div>
+
+              <div class="hero-progress">
+                <div class="hero-progress-label">
+                  <span>Tasks done with Toolcart</span>
+                  <span>68%</span>
+                </div>
+                <div class="hero-progress-bar">
+                  <div class="hero-progress-fill"></div>
+                </div>
+              </div>
+
+              <div class="hero-chip-row">
+                <div class="hero-chip">EMI & ROI</div>
+                <div class="hero-chip">Word counts</div>
+                <div class="hero-chip">Sports stats</div>
+                <div class="hero-chip">Physics & impact</div>
+              </div>
+            </div>
+          </aside>
+        </div>
       </section>
-      <section>
-        <h2>Coming Soon</h2>
-        <p>Full website with 100+ tools is under development.</p>
-        <p>See README.md for complete HTML code and project structure.</p>
+
+      <!-- Science & Chemistry -->
+      <section class="category-section" aria-labelledby="science-title">
+        <div class="category-header">
+          <div class="category-title">
+            <span>🔬</span>
+            <div>
+              <h2 id="science-title">Science &amp; Chemistry Calculators</h2>
+              <span class="eyebrow">For labs, classrooms, and research</span>
+            </div>
+          </div>
+          <a href="/chemistry/" class="category-link">
+            Browse all chemistry tools →
+          </a>
+        </div>
+        <div class="tools-grid">
+          <a class="tool-card" href="/chemistry/analytical-chemistry/">
+            <div class="tool-card-header card-analytical">🧪</div>
+            <div class="tool-card-body">
+              <h3>Analytical Chemistry</h3>
+              <p>Titrations, concentrations, and lab‑grade calculations.</p>
+            </div>
+          </a>
+
+          <a class="tool-card" href="/chemistry/biochemistry/">
+            <div class="tool-card-header card-biochemistry">🧬</div>
+            <div class="tool-card-body">
+              <h3>Biochemistry Tools</h3>
+              <p>Buffers, enzymes, and protein solution helpers.</p>
+            </div>
+          </a>
+
+          <a class="tool-card" href="/chemistry/">
+            <div class="tool-card-header card-chemistry">🧪</div>
+            <div class="tool-card-body">
+              <h3>Chemistry Hub</h3>
+              <p>Molarity, stoichiometry, and reaction calculators.</p>
+            </div>
+          </a>
+
+          <a class="tool-card" href="/chemistry/environmental-chemistry/">
+            <div class="tool-card-header card-env-chem">🌍</div>
+            <div class="tool-card-body">
+              <h3>Environmental Chemistry</h3>
+              <p>Water quality, emissions, and footprint metrics.</p>
+            </div>
+          </a>
+        </div>
       </section>
+
+      <!-- Physics & Engineering -->
+      <section class="category-section" aria-labelledby="physics-title">
+        <div class="category-header">
+          <div class="category-title">
+            <span>⚙️</span>
+            <div>
+              <h2 id="physics-title">Physics &amp; Engineering</h2>
+              <span class="eyebrow">From impact tests to thermodynamics</span>
+            </div>
+          </div>
+          <a href="/physics/" class="category-link">
+            View physics calculators →
+          </a>
+        </div>
+        <div class="tools-grid">
+          <a class="tool-card" href="/physics/">
+            <div class="tool-card-header card-physics">📐</div>
+            <div class="tool-card-body">
+              <h3>Physics Essentials</h3>
+              <p>Kinematics, energy, waves, and core formulas.</p>
+            </div>
+          </a>
+
+          <a class="tool-card" href="/impact-test-calculator/">
+            <div class="tool-card-header card-physics">💥</div>
+            <div class="tool-card-body">
+              <h3>Impact Test Calculator</h3>
+              <p>Compute absorbed energy using mass and height.</p>
+            </div>
+          </a>
+
+          <a class="tool-card" href="/engineering/">
+            <div class="tool-card-header card-physics">🏗️</div>
+            <div class="tool-card-body">
+              <h3>Engineering Suite</h3>
+              <p>Stress, strain, and materials‑focused tools.</p>
+            </div>
+          </a>
+
+          <a class="tool-card" href="/thermodynamics/">
+            <div class="tool-card-header card-physics">🔥</div>
+            <div class="tool-card-body">
+              <h3>Thermodynamics</h3>
+              <p>Heat, work, and efficiency calculators.</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Biology & Health -->
+      <section class="category-section" aria-labelledby="biohealth-title">
+        <div class="category-header">
+          <div class="category-title">
+            <span>🧬</span>
+            <div>
+              <h2 id="biohealth-title">Biology &amp; Health</h2>
+              <span class="eyebrow">Everyday wellness and life sciences</span>
+            </div>
+          </div>
+          <a href="/health-calculators/" class="category-link">
+            Explore health calculators →
+          </a>
+        </div>
+        <div class="tools-grid">
+          <a class="tool-card" href="/health-calculators/">
+            <div class="tool-card-header card-creative">❤️</div>
+            <div class="tool-card-body">
+              <h3>Health Calculator Hub</h3>
+              <p>BMI, calorie, heart rate, and more.</p>
+            </div>
+          </a>
+
+          <a class="tool-card" href="/biology-calculators/">
+            <div class="tool-card-header card-analytical">🧫</div>
+            <div class="tool-card-body">
+              <h3>Biology Calculators</h3>
+              <p>Population, dilution, and growth models.</p>
+            </div>
+          </a>
+
+          <a class="tool-card" href="/parenting/">
+            <div class="tool-card-header card-astrology">👶</div>
+            <div class="tool-card-body">
+              <h3>Parenting Tools</h3>
+              <p>Due date, growth charts, and baby routines.</p>
+            </div>
+          </a>
+
+          <a class="tool-card" href="/footprint/">
+            <div class="tool-card-header card-browser-games">🌱</div>
+            <div class="tool-card-body">
+              <h3>Footprint Calculators</h3>
+              <p>Estimate your environmental impact quickly.</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Finance & Business -->
+      <section class="category-section" aria-labelledby="finance-title">
+        <div class="category-header">
+          <div class="category-title">
+            <span>📊</span>
+            <div>
+              <h2 id="finance-title">Finance &amp; Business</h2>
+              <span class="eyebrow">For salary, savings, and strategy</span>
+            </div>
+          </div>
+          <a href="/finance-calculators/" class="category-link">
+            Open finance hub →
+          </a>
+        </div>
+        <div class="tools-grid">
+          <a class="tool-card" href="/finance-calculators/">
+            <div class="tool-card-header card-finance">💰</div>
+            <div class="tool-card-body">
+              <h3>Finance Calculator Hub</h3>
+              <p>EMI, SIP, ROI, profit margin, and more.</p>
+            </div>
+          </a>
+
+          <a class="tool-card" href="/upwork-fee-calculator-tool/">
+            <div class="tool-card-header card-finance">🧾</div>
+            <div class="tool-card-body">
+              <h3>Upwork Fee Calculator</h3>
+              <p>See client fees and net freelancer earnings.</p>
+            </div>
+          </a>
+
+          <a class="tool-card" href="/trading-options/">
+            <div class="tool-card-header card-conversion">📈</div>
+            <div class="tool-card-body">
+              <h3>Trading &amp; Options</h3>
+              <p>Risk, reward, and breakeven estimators.</p>
+            </div>
+          </a>
+
+          <a class="tool-card" href="/tax-salary/">
+            <div class="tool-card-header card-finance">💼</div>
+            <div class="tool-card-body">
+              <h3>Tax &amp; Salary Tools</h3>
+              <p>In‑hand pay, bonuses, and deductions.</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Sports -->
+      <section class="category-section" aria-labelledby="sports-title">
+        <div class="category-header">
+          <div class="category-title">
+            <span>🤺</span>
+            <div>
+              <h2 id="sports-title">Sports Tools</h2>
+              <span class="eyebrow">Match summaries in one click</span>
+            </div>
+          </div>
+          <a href="/sports/" class="category-link">
+            View sports tools →
+          </a>
+        </div>
+        <div class="tools-grid">
+          <a class="tool-card" href="/sports/tennis-match-stats-analyzer/">
+            <div class="tool-card-header card-tennis">🎾</div>
+            <div class="tool-card-body">
+              <h3>Tennis Match Stats Analyzer</h3>
+              <p>Turn scores into win rates and key metrics.</p>
+            </div>
+          </a>
+
+          <a class="tool-card" href="/sports/golf-player-stats-card-maker/">
+            <div class="tool-card-header card-browser-games">⛳</div>
+            <div class="tool-card-body">
+              <h3>Golf Player Stats Card</h3>
+              <p>Generate shareable player stat cards.</p>
+            </div>
+          </a>
+
+          <a class="tool-card" href="/sports/cricket/">
+            <div class="tool-card-header card-physics">🏏</div>
+            <div class="tool-card-body">
+              <h3>Cricket Tools</h3>
+              <p>Strike rate, economy, and match summaries.</p>
+            </div>
+          </a>
+
+          <a class="tool-card" href="/sports/football/">
+            <div class="tool-card-header card-physics">⚽</div>
+            <div class="tool-card-body">
+              <h3>Football Stats</h3>
+              <p>Goals, assists, and performance ratios.</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Utilities & Converters -->
+      <section class="category-section" aria-labelledby="utilities-title">
+        <div class="category-header">
+          <div class="category-title">
+            <span>🔄</span>
+            <div>
+              <h2 id="utilities-title">Utilities &amp; Converters</h2>
+              <span class="eyebrow">Everyday numbers and formats</span>
+            </div>
+          </div>
+          <a href="/conversion-calculators/" class="category-link">
+            All converters →
+          </a>
+        </div>
+        <div class="tools-grid">
+          <a class="tool-card" href="/conversion-calculators/">
+            <div class="tool-card-header card-conversion">🔁</div>
+            <div class="tool-card-body">
+              <h3>Conversion Calculators</h3>
+              <p>Units, currency, and quick conversions.</p>
+            </div>
+          </a>
+
+          <a class="tool-card" href="/image-converters/">
+            <div class="tool-card-header card-digital">🖼️</div>
+            <div class="tool-card-body">
+              <h3>Image Converters</h3>
+              <p>Fast PNG, JPG, and WebP conversions.</p>
+            </div>
+          </a>
+
+          <a class="tool-card" href="/date-time-calculators/">
+            <div class="tool-card-header card-creative">⏱️</div>
+            <div class="tool-card-body">
+              <h3>Date &amp; Time Tools</h3>
+              <p>Durations, countdowns, and schedules.</p>
+            </div>
+          </a>
+
+          <a class="tool-card" href="/keyboard-tools/">
+            <div class="tool-card-header card-digital">⌨️</div>
+            <div class="tool-card-body">
+              <h3>Keyboard Tools</h3>
+              <p>Virtual keyboards and layout helpers.</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Education & Productivity -->
+      <section class="category-section" aria-labelledby="education-title">
+        <div class="category-header">
+          <div class="category-title">
+            <span>📚</span>
+            <div>
+              <h2 id="education-title">Education &amp; Productivity</h2>
+              <span class="eyebrow">Study faster, plan smarter</span>
+            </div>
+          </div>
+          <a href="/education-calculators/" class="category-link">
+            Education hub →
+          </a>
+        </div>
+        <div class="tools-grid">
+          <a class="tool-card" href="/word-counter-tool-count-words-characters-more/">
+            <div class="tool-card-header card-creative">📝</div>
+            <div class="tool-card-body">
+              <h3>Word Counter Tool</h3>
+              <p>Words, characters, reading time, and more.</p>
+            </div>
+          </a>
+
+          <a class="tool-card" href="/mcqs/">
+            <div class="tool-card-header card-browser-games">🎯</div>
+            <div class="tool-card-body">
+              <h3>MCQs Practice Test</h3>
+              <p>Timed quizzes with instant feedback.</p>
+            </div>
+          </a>
+
+          <a class="tool-card" href="/productivity-calculators/">
+            <div class="tool-card-header card-finance">📅</div>
+            <div class="tool-card-body">
+              <h3>Productivity Calculators</h3>
+              <p>Time blocking and workload planning.</p>
+            </div>
+          </a>
+
+          <a class="tool-card" href="/reading-calculators/">
+            <div class="tool-card-header card-analytical">📖</div>
+            <div class="tool-card-body">
+              <h3>Reading Calculators</h3>
+              <p>Estimate reading and speaking duration.</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Home & Lifestyle / Creative -->
+      <section class="category-section" aria-labelledby="lifestyle-title">
+        <div class="category-header">
+          <div class="category-title">
+            <span>🏡</span>
+            <div>
+              <h2 id="lifestyle-title">Home, Lifestyle &amp; Creative</h2>
+              <span class="eyebrow">Practical helpers and fun extras</span>
+            </div>
+          </div>
+          <a href="/home-lifestyle/" class="category-link">
+            Explore lifestyle tools →
+          </a>
+        </div>
+        <div class="tools-grid">
+          <a class="tool-card" href="/cooking/">
+            <div class="tool-card-header card-chemistry">🍲</div>
+            <div class="tool-card-body">
+              <h3>Cooking Calculators</h3>
+              <p>Portions, conversions, and baking ratios.</p>
+            </div>
+          </a>
+
+          <a class="tool-card" href="/coffee-tea/">
+            <div class="tool-card-header card-browser-games">☕</div>
+            <div class="tool-card-body">
+              <h3>Coffee &amp; Tea Tools</h3>
+              <p>Brew ratios and caffeine estimates.</p>
+            </div>
+          </a>
+
+          <a class="tool-card" href="/astrology/">
+            <div class="tool-card-header card-astrology">✨</div>
+            <div class="tool-card-body">
+              <h3>Astrology Tools</h3>
+              <p>Charts, signs, and compatibility helpers.</p>
+            </div>
+          </a>
+
+          <a class="tool-card" href="/games/">
+            <div class="tool-card-header card-browser-games">🎮</div>
+            <div class="tool-card-body">
+              <h3>Browser Games</h3>
+              <p>Quick brain breaks and memory games.</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <div style="height:2rem;"></div>
     </div>
   </main>
-  <footer style="background: #fff; padding: 2rem 0; margin-top: 4rem; text-align: center; border-top: 1px solid #e5e7eb;">
-    <p>© 2026 Toolcart.org. All rights reserved.</p>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="container footer-top-grid">
+        <div class="footer-col">
+          <h3>Productivity Tools</h3>
+          <ul class="footer-links">
+            <li><a href="/online-media-player/">Online Media Player</a></li>
+            <li><a href="/barcode-generator/">Barcode Generator</a></li>
+            <li><a href="/google-title-preview/">Search Title Preview</a></li>
+            <li><a href="/html-faq-generator/">HTML FAQ Generator</a></li>
+            <li><a href="/cv-generator/">CV &amp; Resume Generator</a></li>
+            <li><a href="/screenshot-capture/">Screenshot Capture</a></li>
+            <li><a href="/urdu-keyboard/">Urdu Keyboard</a></li>
+            <li><a href="/to-do-list-maker/">To‑Do List Maker</a></li>
+            <li><a href="/essay-generator/">Essay Generator</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>FAQs About Toolcart.org</h3>
+          <details class="faq-item">
+            <summary>What is Toolcart.org?</summary>
+            <p>Toolcart.org is a hub of free, browser‑based calculators and utilities built to speed up everyday tasks without logins or paywalls.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Who runs these tools?</summary>
+            <p>The tools are created and maintained by a small independent team of developers and educators focused on practical, accurate utilities.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do you store my data or uploads?</summary>
+            <p>No. Whenever possible, calculations run entirely in your browser and inputs are not stored on our servers.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can I request a new tool?</summary>
+            <p>Yes. Send your ideas to hello@toolcart.org and we’ll review them for future updates.</p>
+          </details>
+        </div>
+
+        <div class="footer-col">
+          <h3>Smart Work Tools</h3>
+          <ul class="footer-links">
+            <li><a href="/image-compressor/">Image Compressor</a></li>
+            <li><a href="/table-generator/">Table Generator</a></li>
+            <li><a href="/background-remover/">Background Remover</a></li>
+            <li><a href="/image-resizer/">Image Resizer</a></li>
+            <li><a href="/text-to-pdf/">Text‑to‑PDF</a></li>
+            <li><a href="/invoice-maker/">Invoice Maker</a></li>
+            <li><a href="/pie-chart-maker/">Pie Chart Maker</a></li>
+            <li><a href="/graph-maker/">Graph Maker</a></li>
+            <li><a href="/advanced-notepad/">Advanced Online Notepad</a></li>
+            <li><a href="/stylish-name-maker/">Stylish Name Maker</a></li>
+            <li><a href="/image-cropper/">Image Cropper</a></li>
+            <li><a href="/gk-mcqs-test/">GK MCQs Test</a></li>
+            <li><a href="/memory-match-game/">Memory Match Game</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-middle">
+      <div class="container footer-middle-grid">
+        <div class="footer-feature-box">
+          <h4><span class="tc">TOOLCART</span> <span class="free">FREE</span> <span class="tools">TOOLS</span></h4>
+          <p>Toolcart.org focuses on fast, accurate, and friendly tools that work right in your browser. No accounts, no trial periods — just practical calculators you can rely on.</p>
+          <p>Most tools run entirely client‑side, so your inputs stay on your device while you get instant results.</p>
+        </div>
+
+        <div class="testimonial-box" id="testimonialBox">
+          <div class="testimonial-text" id="testimonialText">
+            “Toolcart.org has replaced half a dozen tabs for me — I use it for quick finance checks, word counts, and even match summaries.”
+          </div>
+          <div class="testimonial-meta">
+            <span id="testimonialMeta">— Ayesha M., Digital Marketer</span>
+            <div class="testimonial-controls">
+              <button type="button" id="testimonialPrev" aria-label="Previous testimonial">‹</button>
+              <button type="button" id="testimonialNext" aria-label="Next testimonial">›</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-social">
+          <div style="font-size:0.9rem;font-weight:500;">Stay in touch</div>
+          <div class="social-row">
+            <a class="social-btn" href="https://www.youtube.com/" aria-label="YouTube" target="_blank" rel="noopener">▶</a>
+            <a class="social-btn" href="https://www.facebook.com/" aria-label="Facebook" target="_blank" rel="noopener">f</a>
+            <a class="social-btn" href="https://medium.com/" aria-label="Medium" target="_blank" rel="noopener">M</a>
+            <a class="social-btn" href="https://api.whatsapp.com/send?text=Check%20out%20these%20free%20online%20tools%20on%20Toolcart.org%20https%3A%2F%2Ftoolcart.org" aria-label="Share on WhatsApp" target="_blank" rel="noopener">✚</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <div>© <span id="year"></span> Toolcart.org. All rights reserved.</div>
+        <div class="footer-bottom-nav">
+          <a href="/privacy-policy/">Privacy Policy</a>
+          <a href="/cookie-policy/">Cookie Policy</a>
+          <a href="/disclaimer/">Disclaimer</a>
+          <a href="/dmca-policy/">DMCA Policy</a>
+          <a href="/terms/">Terms</a>
+        </div>
+      </div>
+    </div>
   </footer>
+
+  <script>
+    // Mobile drawer
+    const navToggle = document.querySelector('.nav-toggle');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const closeDrawer = document.getElementById('closeDrawer');
+
+    if (navToggle && mobileDrawer) {
+      navToggle.addEventListener('click', () => {
+        mobileDrawer.classList.add('active');
+        mobileDrawer.setAttribute('aria-hidden', 'false');
+      });
+    }
+
+    if (closeDrawer) {
+      closeDrawer.addEventListener('click', () => {
+        mobileDrawer.classList.remove('active');
+        mobileDrawer.setAttribute('aria-hidden', 'true');
+      });
+    }
+
+    mobileDrawer?.addEventListener('click', (e) => {
+      if (e.target === mobileDrawer) {
+        mobileDrawer.classList.remove('active');
+        mobileDrawer.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    // Accordion in mobile menu
+    document.querySelectorAll('.mobile-menu button.accordion').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const submenu = btn.nextElementSibling;
+        submenu.classList.toggle('open');
+      });
+    });
+
+    // Testimonial carousel
+    const testimonials = [
+      {
+        text: '“Toolcart.org has replaced half a dozen tabs for me — I use it for quick finance checks, word counts, and match summaries.”',
+        meta: '— Ayesha M., Digital Marketer'
+      },
+      {
+        text: '“As a student, I love having science calculators, study tools, and word counters in one clean interface.”',
+        meta: '— Rahul K., Engineering Student'
+      },
+      {
+        text: '“The client‑side tools give me peace of mind when working with sensitive numbers and drafts.”',
+        meta: '— Lina S., Freelance Writer'
+      },
+      {
+        text: '“From EMI calculators to impact tests, Toolcart.org is usually the first tab I open during work.”',
+        meta: '— David R., Project Engineer'
+      }
+    ];
+
+    let currentTestimonial = 0;
+    const testimonialText = document.getElementById('testimonialText');
+    const testimonialMeta = document.getElementById('testimonialMeta');
+    const testimonialPrev = document.getElementById('testimonialPrev');
+    const testimonialNext = document.getElementById('testimonialNext');
+
+    function renderTestimonial(index) {
+      const t = testimonials[index];
+      testimonialText.textContent = t.text;
+      testimonialMeta.textContent = t.meta;
+    }
+
+    testimonialPrev?.addEventListener('click', () => {
+      currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+      renderTestimonial(currentTestimonial);
+    });
+
+    testimonialNext?.addEventListener('click', () => {
+      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+      renderTestimonial(currentTestimonial);
+    });
+
+    let testimonialTimer = setInterval(() => {
+      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+      renderTestimonial(currentTestimonial);
+    }, 5000);
+
+    document.getElementById('testimonialBox')?.addEventListener('mouseenter', () => {
+      clearInterval(testimonialTimer);
+    });
+
+    document.getElementById('testimonialBox')?.addEventListener('mouseleave', () => {
+      testimonialTimer = setInterval(() => {
+        currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+        renderTestimonial(currentTestimonial);
+      }, 5000);
+    });
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
